@@ -1,0 +1,21 @@
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 600px;
+  border: 1px solid black;
+}
+
+.card{
+  border: 1px solid black;
+  height: 250px ;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.right{
+  height: 100%;
+}

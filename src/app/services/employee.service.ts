@@ -14,11 +14,15 @@ export class EmployeeService {
     private http: HttpClient
   ) { }
 
-  findAll(): Observable<ResponseApi<Employee[]>> {
-    return this.http.get<ResponseApi<Employee[]>>(this.API_URL);
+  findAll(): Observable<ResponseApi> {
+    return this.http.get<ResponseApi>(this.API_URL);
   }
 
-  save(employee: Employee): Observable<ResponseApi<Employee>> {
-    return this.http.post<ResponseApi<Employee>>(this.API_URL, employee);
+  save(employee: Employee): Observable<ResponseApi> {
+    return this.http.post<ResponseApi>(this.API_URL, employee);
+  }
+
+  findByGroup(id: number): Observable<ResponseApi> {
+    return this.http.get<ResponseApi>(`${this.API_URL}/getByGroup?id=${id}`);
   }
 }
