@@ -1,0 +1,39 @@
+<form>
+  <div class="form-group">
+    <label for="search" class="form-label mt-4">Buscar empleado</label>
+    <input type="search" class="form-control" id="search" placeholder="Buscar">
+  </div>
+</form>
+
+<table class="table table-hover" *ngIf="employees; else showError">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Fecha de nacimiento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of currentEmployees">
+      <th scope="row">{{employee.id}}</th>
+      <td>{{employee.name}}</td>
+      <td>{{employee.last_name}}</td>
+      <td>{{employee.birthday | date: 'yyyy/MM/dd'}}</td>
+    </tr>
+  </tbody>
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group me-2" role="group" aria-label="First group">
+      <button
+      type="button"
+      class="btn btn-secondary"
+      *ngFor="let i of totalPagesArray"
+      (click)="gotoPage(i)"
+      >{{i + 1}}</button>
+    </div>
+  </div>
+  </table>
+
+  <ng-template #showError>
+    {{messageError}}
+  </ng-template>
