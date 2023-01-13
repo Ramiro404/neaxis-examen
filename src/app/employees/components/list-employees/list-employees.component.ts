@@ -10,8 +10,11 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class ListEmployeesComponent implements OnInit {
   employees: Employee[] = [];
+  search: string = '';
+  showPagination = true;
   currentEmployees: Employee[] = [];
   totalPagesArray: number [] = [];
+  filteredEmployees: Employee[] = [];
   totalPages = 0;
   messageError = '';
   constructor(
@@ -53,6 +56,19 @@ export class ListEmployeesComponent implements OnInit {
     for (let index = skip; index < limit; index++) {
       const element = this.employees[index]
       this.currentEmployees.push(element);
+    }
+  }
+
+  searchEmployee(): void {
+    if(this.search !== '') {
+      this.showPagination = false;
+      this.currentEmployees = this.employees.filter( (employee) => {
+        const fullname = (employee.name + ' ' + employee.last_name).toLocaleLowerCase();
+        return fullname.includes( this.search);
+      });
+    } else {
+      this.showPagination = true;
+      this.gotoPage(0);
     }
   }
 

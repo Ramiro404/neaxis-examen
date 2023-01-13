@@ -1,7 +1,7 @@
 <form>
   <div class="form-group">
-    <label for="search" class="form-label mt-4">Buscar empleado</label>
-    <input type="search" class="form-control" id="search" placeholder="Buscar">
+    <label for="search" class="form-label mt-4">Presionar enter para buscar un empleado</label>
+    <input type="search" name="search" class="form-control" id="search" placeholder="Buscar..." [(ngModel)]="search" (change)="searchEmployee()">
   </div>
 </form>
 
@@ -22,7 +22,7 @@
       <td>{{employee.birthday | date: 'yyyy/MM/dd'}}</td>
     </tr>
   </tbody>
-  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" *ngIf="showPagination">
     <div class="btn-group me-2" role="group" aria-label="First group">
       <button
       type="button"
