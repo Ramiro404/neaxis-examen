@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+   <fieldset>
+    <legend>Formulario</legend>
+
+    <div class="form-group">
+      <label for="name" class="form-label mt-4">Nombre</label>
+      <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Nombre" formControlName="name">
+      <small id="name" class="form-text text-muted">Maximo 30 caracteres.</small>
+      <span *ngIf="form.controls['name'].touched">
+        <p *ngIf="form.controls['name'].hasError('required')" class="text-danger">Campo requerido</p>
+        <p *ngIf="form.controls['name'].hasError('maxlength')" class="text-danger">Supera los 30 caracteres</p>
+      </span>
+
+    </div>
+
+    <div class="form-group">
+      <label for="lastname" class="form-label mt-4">Apellidos</label>
+      <input type="text" class="form-control" id="lastname" aria-describedby="lastname" placeholder="Apellidos" formControlName="last_name">
+      <small id="lastname" class="form-text text-muted">Maximo 30 caracteres.</small>
+      <span *ngIf="form.controls['last_name'].touched">
+        <p *ngIf="form.controls['last_name'].hasError('required')" class="text-danger">Campo requerido</p>
+        <p *ngIf="form.controls['last_name'].hasError('maxlength')" class="text-danger">Supera los 30 caracteres</p>
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="birthday" class="form-label mt-4">Cumpleaños</label>
+      <input type="date" class="form-control" id="birthday" aria-describedby="birthday" placeholder="Fecha de Cumpleaños" formControlName="birthday">
+      <span *ngIf="form.controls['birthday'].touched">
+        <p *ngIf="form.controls['birthday'].hasError('required')" class="text-danger">Campo requerido</p>
+      </span>
+    </div>
+
+    <br>
+    <h1 class="text-danger">{{messageError}}</h1>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    </fieldset>
+</form>

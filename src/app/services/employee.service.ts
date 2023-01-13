@@ -14,7 +14,11 @@ export class EmployeeService {
     private http: HttpClient
   ) { }
 
-  findAll(page?: number, skip?: number): Observable<ResponseApi<Employee[]>> {
+  findAll(): Observable<ResponseApi<Employee[]>> {
     return this.http.get<ResponseApi<Employee[]>>(this.API_URL);
+  }
+
+  save(employee: Employee): Observable<ResponseApi<Employee>> {
+    return this.http.post<ResponseApi<Employee>>(this.API_URL, employee);
   }
 }
