@@ -1,3 +1,10 @@
+# Instrucciones
+Descargar el proyecto desde el repositorio
+
+Una vez descargado, correr el comando "npm install" para descargar las dependencias
+
+Al final, ejecutar "ng serve --open" para levantar el servidor de angular
+
 # PruebaTecnica
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
@@ -5,6 +12,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+
 
 ## Code scaffolding
 
